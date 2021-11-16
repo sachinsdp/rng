@@ -58,3 +58,68 @@ for i in range(10000):
 for i in range(n):
     print("For interval ",round(i*interval_length,1)," to ",\
     round((i+1)*interval_length,1)," = ",counter[i])
+
+
+import matplotlib.pyplot as plt 
+
+#n = 10 
+
+# x axis values 
+x = [interval_length*i for i in range(n)]
+# corresponding y axis values 
+#print(x)
+#print(counter)
+
+# plotting the points  
+#plt.plot(x, counter) 
+    
+# naming the x axis 
+plt.xlabel('Intervals') 
+# naming the y axis 
+#plt.ylim(500,1500)
+plt.ylabel('RN counts') 
+    
+# giving a title to my graph 
+plt.title('RN uniformity') 
+    
+# function to show the plot 
+#plt.show() 
+
+radius = 1
+trials = 1000
+incriment = 1000
+inside = 0
+total =  incriment
+pia = [0] * trials
+
+for i in range(trials):
+
+    for j in range(incriment):
+        x = 2 * rn.random() - 1
+        y = 2 * rn.random() - 1
+        z = x*x + y*y
+        if(z <= 1.0):
+            inside = inside + 1
+    pi  = 4 * (inside/(incriment*(i+1)))
+    print(format(pi,".5f"))
+    pia[i] = pi
+    #print(pia[i])
+
+x = [i for i in range(trials)]
+# plotting the points  
+plt.plot(x, pia) 
+    
+# naming the x axis 
+plt.xlabel('TRIALS (with ' + str(incriment) + ' random number for each trial)') 
+# naming the y axis 
+#plt.ylim(500,1500)
+plt.ylabel('Pi value') 
+    
+# giving a title to my graph 
+plt.title('Pi estimation') 
+    
+# function to show the plot 
+plt.show() 
+
+
+
