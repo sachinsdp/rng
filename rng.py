@@ -54,39 +54,28 @@ for i in range(n_rn):
            counter[j] = counter[j] + 1
            break
 
-# print the number of RNs in each interval
-#for i in range(n):
-    #print("For interval ",round(i*interval_length,1)," to ",\
-    #round((i+1)*interval_length,1)," = ",counter[i])
-
-
 import matplotlib.pyplot as plt 
 
 # x axis values 
 x = [interval_length*i for i in range(n_interval)]
-# corresponding y axis values 
-#print(x)
-#print(counter)
 
 # plotting the points  
 plt.bar(x, counter,width = 0.05) 
-#plt.hist(x,counter)    
-# naming the x axis 
+
 plt.xlabel('Intervals') 
-# naming the y axis 
+
 plt.ylim(500,1500)
 plt.ylabel('RN counts') 
-    
-# giving a title to my graph 
+
 plt.title('RN uniformity') 
-    
-# function to show the plot 
 
 plt.show() 
-#exit()
+
+
+# estimation of Pi by monte carlo
 
 radius = 1
-trials = 1000
+trials = 100
 incriment = 1000
 inside = 0
 
@@ -101,25 +90,19 @@ for i in range(trials):
         if(z <= 1.0):
             inside = inside + 1
     pi  = 4 * (inside/(incriment*(i+1)))
-    #print(format(pi,".5f"))
+
     pia[i] = pi
-    #print(pia[i])
 
 x = [i for i in range(trials)]
-# plotting the points  
+ 
 plt.plot(x, pia) 
-    
-# naming the x axis 
+
 plt.xlabel('TRIALS (with ' + str(incriment) + ' random number for each trial)') 
-# naming the y axis 
-#plt.ylim(500,1500)
+
 plt.ylabel('Pi value') 
     
 # giving a title to my graph 
 plt.title('Pi estimation') 
     
 # function to show the plot 
-plt.show() 
-
-
-
+plt.show()
