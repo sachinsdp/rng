@@ -30,12 +30,12 @@ print("\n problem 2. \n Test for uniformity of Pyhton inbuilt random number \
 generator \n")
 
 # uniformity
-n = 10
-counter = [0] * n
-interval_length = (1/n)
+n_interval = 10
+counter = [0] * n_interval
+interval_length = (1/n_interval)
+n_rn = 10000
 
-
-print("Number of intervals taken is = ",n)
+print("Number of intervals taken is = ",n_interval)
 print("length of interval is = ",interval_length,"\n \n")
 
 import random as rn
@@ -43,53 +43,53 @@ import random as rn
 rn.seed(10)
 
 # generate Random numbers
-for i in range(10000):
+for i in range(n_rn):
 
     s = rn.random()
      
     #check in which interval the random number falls
 
-    for j in range(n):
+    for j in range(n_interval):
        if (s > float(j)*interval_length) and (s <= float(j+1)*interval_length):
            counter[j] = counter[j] + 1
            break
 
 # print the number of RNs in each interval
-for i in range(n):
-    print("For interval ",round(i*interval_length,1)," to ",\
-    round((i+1)*interval_length,1)," = ",counter[i])
+#for i in range(n):
+    #print("For interval ",round(i*interval_length,1)," to ",\
+    #round((i+1)*interval_length,1)," = ",counter[i])
 
 
 import matplotlib.pyplot as plt 
 
-#n = 10 
-
 # x axis values 
-x = [interval_length*i for i in range(n)]
+x = [interval_length*i for i in range(n_interval)]
 # corresponding y axis values 
 #print(x)
 #print(counter)
 
 # plotting the points  
-#plt.plot(x, counter) 
-    
+plt.bar(x, counter,width = 0.05) 
+#plt.hist(x,counter)    
 # naming the x axis 
 plt.xlabel('Intervals') 
 # naming the y axis 
-#plt.ylim(500,1500)
+plt.ylim(500,1500)
 plt.ylabel('RN counts') 
     
 # giving a title to my graph 
 plt.title('RN uniformity') 
     
 # function to show the plot 
-#plt.show() 
+
+plt.show() 
+#exit()
 
 radius = 1
 trials = 1000
 incriment = 1000
 inside = 0
-total =  incriment
+
 pia = [0] * trials
 
 for i in range(trials):
@@ -101,7 +101,7 @@ for i in range(trials):
         if(z <= 1.0):
             inside = inside + 1
     pi  = 4 * (inside/(incriment*(i+1)))
-    print(format(pi,".5f"))
+    #print(format(pi,".5f"))
     pia[i] = pi
     #print(pia[i])
 
