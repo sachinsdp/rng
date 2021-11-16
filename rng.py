@@ -101,8 +101,6 @@ plt.xlabel('TRIALS (with ' + str(incriment) + ' random number for each trial)')
 
 plt.ylabel('Pi value') 
     
-# giving a title to my graph 
 plt.title('Pi estimation') 
     
-# function to show the plot 
 plt.show()
