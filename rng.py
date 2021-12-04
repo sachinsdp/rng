@@ -4,7 +4,13 @@
 
 # choose variable according to the below conditions.
 # 0 < a < m  # 0 ≤ c < m  # 0 ≤ X0 < c 
-x = 7 ; c = 13 ; a = 3 ; m = 20 ; n = 10 ; y = 0.0
+x = 7 
+c = 13 
+a = 3 
+m = 20 
+n = 10 
+y = 0.0 
+
 print("Problem 1.A \n Random numbers generated are \n")
 for i in range(n):
   x = (a*x + c) % m  # LCG equation
@@ -16,7 +22,12 @@ for i in range(n):
 
 # m = 2^32	a = 1664525	c = 1013904223 (Numerical recipes book)
 print("\n Problem 1.B \n Random numbers generated are \n")
-x = 1 ; c = 1013904223 ; a = 1664525 ; m = 2**32 ; n = 100 ; y = 0.0
+x = 1  
+c = 1013904223 
+a = 1664525 
+m = 2**32 
+n = 10 
+y = 0.0
 
 for i in range(n):
   x = (a*x + c) % m
@@ -47,7 +58,7 @@ for i in range(n_rn):
 
     s = rn.random()
      
-    #check in which interval the random number falls
+    #check in which interval the random number falls into
 
     for j in range(n_interval):
        if (s > float(j)*interval_length) and (s <= float(j+1)*interval_length):
